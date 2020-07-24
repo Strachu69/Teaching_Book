@@ -3,55 +3,69 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-
-
-class Test
+namespace Generics
 {
-    static void Main()
+    class MyBubleGeneric<T>
     {
-        int[] tab1 = { 6, 8, 4, 7, 2, 3, 0 };
-
-        var intTablica = new Bable<int[]>(tab1);
-    }
-
-}
-class Bable<T>
-{
-    
-    public Bable(T value)//statik było
-    {
-        
-        T tablica1 = value;
-        int[] tablica=tablica1;
-
-
-
-        for (int z = 0; z < tablica.Length; z++)
+        private T[] genericTable;
+        public MyBubleGeneric(int size)//przyjmuje rozmiar tablicy
         {
-            for (int i = 0; tablica.Length - 1 > i; i++)
+            genericTable = new T[size];
+
+        }
+        public T genericItem(int index)//metoda pozwala zwrócić dowlny typ danych
+        {
+            return genericTable[index];
+        }
+        public void setGenericValue(int index, T value)
+        {
+            genericTable[index] = value;
+        }
+        public void BubleAlgorythm()
+        {
+            for (int z = 0; z < genericTable.Length; z++)
             {
-                if (tablica[i] > tablica[i + 1])
+                for (int i = 0; genericTable.Length - 1 > i; i++)
                 {
-                    int t1 = tablica[i];
-                    int t2 = tablica[i + 1];
-                    tablica[i] = t2;
-                    tablica[i + 1] = t1;
+                    if (genericTable[i] > genericTable[i + 1])
+                    {
+                        int t1 = (int)genericTable[i];
+                        int t2 = genericTable[i + 1];
+                        genericTable[i] = t2;
+                        genericTable[i + 1] = t1;
+
+                    }
+
+
+
+
 
                 }
             }
-        }
-       
-    }
-    void Write(int[] tablica)// statik było
-    {
-        for (int n = 0; tablica.Length > n; n++)
-        {
-            string s = tablica[n].ToString();
-            Console.WriteLine(s);
+
 
         }
-        Console.ReadKey();
+        
+        
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] mainTable= { 6, 5, 4, 3, 2, 1, 0 };
+            //int e=mainTable.Length;
+            MyBubleGeneric<int> intTable = new MyBubleGeneric<int>(mainTable.Length);
+            for(int i= 0;i< mainTable.Length; i++)
+            {
+                intTable.setGenericValue(i, mainTable[i]);
+                intTable.
+
+            }
+
+        }
     }
 
 }
+
+
+
