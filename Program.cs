@@ -58,7 +58,7 @@ namespace Generics
             for(int i= 0;i< mainTable.Length; i++)
             {
                 intTable.setGenericValue(i, mainTable[i]);
-                intTable.
+                
 
             }
 
